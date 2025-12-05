@@ -1,0 +1,112 @@
+.our-vision {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.our-vision-container {
+  max-width: 1920px;
+  width: 100%;
+  margin: 0 auto;
+  padding-left: 240px;
+  padding-right: 240px;
+  position: relative;
+  z-index: 1;
+}
+
+.vision-card-image {
+  position: relative;
+  width: 100%;
+  min-height: 400px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.vision-background-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .our-vision-container {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  .vision-text-overlay {
+    padding: 40px;
+  }
+  
+  .vision-card-image {
+    min-height: 508px;
+  }
+}
+
+@media (max-width: 968px) {
+  .vision-title {
+    font-size: 36px;
+  }
+  
+  .vision-description {
+    font-size: 15px;
+    max-width: 100%;
+  }
+  
+  .vision-points {
+    max-width: 100%;
+  }
+  
+  .vision-card-image {
+    min-height: 608px;
+  }
+}
+
+@media (max-width: 768px) {
+  .our-vision {
+    padding: 60px 0;
+  }
+
+  .our-vision-container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .vision-text-overlay {
+    padding: 30px;
+    gap: 20px;
+  }
+  
+  .vision-card-image {
+    min-height: 500px;
+    border-radius: 20px;
+  }
+  
+  .vision-title {
+    font-size: 32px;
+  }
+  
+  .vision-description {
+    font-size: 14px;
+  }
+  
+  .vision-points li {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .vision-text-overlay {
+    padding: 20px;
+  }
+  
+  .vision-card-image {
+    min-height: 408px;
+  }
+  
+  .vision-title {
+    font-size: 28px;
+  }
+}

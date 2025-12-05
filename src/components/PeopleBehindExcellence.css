@@ -1,0 +1,211 @@
+.people-behind-excellence {
+  padding: 100px 0;
+  background: transparent;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.people-behind-excellence img {
+  background: transparent !important;
+  background-color: transparent !important;
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.people-container {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title {
+  font-size: 64px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 32px;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.section-title .highlight {
+  color: #4FFFB0;
+}
+
+.section-description {
+  font-size: 22px;
+  color: #9FA3BB;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 60px;
+  justify-items: center;
+}
+
+.team-card {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background: none !important;
+  border-radius: 0;
+  padding: 0;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  transition: transform 0.3s ease;
+  width: 100%;
+  max-width: 600px;
+}
+
+.team-card * {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  border: none !important;
+  outline: none !important;
+}
+
+.team-card:hover {
+  transform: scale(1.02);
+}
+
+.team-image-container {
+  flex-shrink: 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  position: relative;
+  overflow: visible;
+}
+
+.team-image-container {
+  flex-shrink: 0;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  position: relative;
+  overflow: visible;
+}
+
+.team-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 16px;
+  object-fit: cover;
+  border: none !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.team-info {
+  flex: 1;
+  background: none !important;
+  border: none;
+  box-shadow: none;
+}
+
+.team-name {
+  font-size: 32px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 12px;
+}
+
+.team-position {
+  font-size: 20px;
+  color: #9FA3BB;
+  margin-bottom: 20px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: none !important;
+  border: none;
+  box-shadow: none;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.contact-icon {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+}
+
+.team-email,
+.team-phone {
+  font-size: 18px;
+  color: #9FA3BB;
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .people-container {
+    padding: 0 20px;
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .section-title {
+    font-size: 52px;
+  }
+}
+
+@media (max-width: 768px) {
+  .people-behind-excellence {
+    padding: 60px 0;
+  }
+  
+  .section-header {
+    margin-bottom: 40px;
+  }
+  
+  .section-title {
+    font-size: 42px;
+  }
+  
+  .section-description {
+    font-size: 18px;
+  }
+  
+  .team-card {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding: 0;
+    background: none;
+  }
+  
+  .team-image {
+    width: 160px;
+    height: 160px;
+  }
+  
+  .team-name {
+    font-size: 26px;
+  }
+}
+

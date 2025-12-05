@@ -1,0 +1,56 @@
+.industries-we-serve {
+  padding: 0;
+  margin: 0;
+  padding-bottom: 100px;
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.industries-container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.industries-image-wrapper {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.industries-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
+  transition: transform 0.4s ease;
+}
+
+.industries-image:hover {
+  transform: scale(1.02);
+}
+
+@media (max-width: 768px) {
+  .industries-we-serve {
+    padding-bottom: 60px;
+  }
+
+  .industries-image {
+    object-fit: contain;
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .industries-image {
+    width: 100%;
+  }
+}
+
