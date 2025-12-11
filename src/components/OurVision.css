@@ -110,3 +110,10 @@
     font-size: 28px;
   }
 }
+/* FIX GAP CAUSED BY FORCED HEIGHT */
+@media (max-width: 992px) {
+  .vision-card-image {
+    min-height: unset !important;
+    height: auto !important;
+  }
+}

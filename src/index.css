@@ -78,3 +78,76 @@ h1, h2, h3, h4, h5, h6, p, span, li, a, button {
   text-rendering: optimizeLegibility;
 }
 
+/* Mobile-First Responsive Framework */
+/* Base mobile styles (320px and up) */
+@media (min-width: 320px) {
+  body {
+    font-size: 14px;
+    line-height: 1.4;
+  }
+  
+  .container {
+    padding: 0 16px;
+    max-width: 100%;
+  }
+}
+
+/* Small mobile (375px and up) */
+@media (min-width: 375px) {
+  body {
+    font-size: 15px;
+  }
+  
+  .container {
+    padding: 0 20px;
+  }
+}
+
+/* Large mobile (414px and up) */
+@media (min-width: 414px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Tablet (768px and up) */
+@media (min-width: 768px) {
+  .container {
+    padding: 0 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/* Desktop (1024px and up) */
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 60px;
+  }
+}
+
+/* Large desktop (1200px and up) */
+@media (min-width: 1200px) {
+  .container {
+    padding: 0 240px;
+    max-width: 1920px;
+  }
+}
+
+/* Mobile image optimization */
+@media (max-width: 767px) {
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    display: block;
+  }
+  
+  .mobile-full-width {
+    width: 100vw !important;
+    position: relative;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    border-radius: 0 !important;
+  }
+}
+

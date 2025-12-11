@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 const Hero = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isArabic = i18n.language === "ar";
+
+  // Set the language attribute on <html>
+  useEffect(() => {
+    if (typeof document !== "undefined") {
+      document.documentElement.lang = isArabic ? "ar" : "en";
+    }
+  }, [isArabic]);
 
   const scrollToContact = () => {
     const contactSection = document.getElementById('contact-us');
@@ -34,35 +42,42 @@ const Hero = () => {
           align-items: center;
         }
 
-        /* --------------------------
-           RTL (Arabic) layout fixes
-           -------------------------- */
-        html[lang="ar"] .hero-container {
-          flex-direction: row-reverse; /* logo left, text right */
-          padding-left: 240px !important;
-          padding-right: 310px !important;
-          text-align: right;
+        /* Desktop Arabic RTL ONLY */
+        @media (min-width: 1201px) {
+          html[lang="ar"] .hero-container {
+            flex-direction: row;
+            padding-left: 310px !important;
+            padding-right: 240px !important;
+          }
+
+          html[lang="ar"] .hero-content {
+            align-items: flex-end !important;
+            text-align: right !important;
+            margin-top: 60px !important;
+          }
+
+          html[lang="ar"] .hero-title,
+          html[lang="ar"] .title-main,
+          html[lang="ar"] .title-subtitle,
+          html[lang="ar"] .hero-description {
+            text-align: right !important;
+          }
         }
 
-        /* make the text block a bit narrower and push it slightly inward
-           so it matches Figma spacing for the Arabic hero */
         .hero-content {
           display: flex;
           flex-direction: column;
-          gap: 30px;
           width: 44%;
-          max-width: 620px;
-        }
-
-        html[lang="ar"] .hero-content {
-          align-items: flex-end;    /* right-align content in RTL */
-          margin-right: 80px;       /* pushes content leftward a bit to match design */
+          max-width: 520px;
+          margin-top: 40px;
         }
 
         .hero-title {
           display: flex;
           flex-direction: column;
           gap: 12px;
+          width: 100%;
+          margin-top: 6px;
         }
 
         .title-main {
@@ -70,7 +85,7 @@ const Hero = () => {
           font-weight: 700;
           color: #74FBC0;
           line-height: 1.05;
-          white-space: pre-line;
+          white-space: normal !important;
         }
 
         .title-subtitle {
@@ -78,6 +93,7 @@ const Hero = () => {
           font-weight: 400;
           color: #ffffff;
           line-height: 1.35;
+          white-space: normal !important;
         }
 
         .highlight {
@@ -87,14 +103,11 @@ const Hero = () => {
         .hero-description {
           font-size: 18px;
           line-height: 1.8;
-          color: #e0e0e0;
+          color: #9FA3BB;
           margin-top: 6px;
-          max-width: 520px;
-        }
-
-        /* Make description width a little smaller in RTL so lines match Figma */
-        html[lang="ar"] .hero-description {
-          max-width: 520px;
+          width: 100%;
+          max-width: 480px;
+          white-space: normal !important;
         }
 
         .hero-cta-button {
@@ -109,13 +122,12 @@ const Hero = () => {
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           box-shadow: 0 4px 15px rgba(116, 251, 192, 0.3);
           width: fit-content;
-          margin-top: 10px;
+          margin-top: 20px;
           position: relative;
           overflow: hidden;
-          align-self: flex-start; /* default for LTR: keep button left under text column */
+          align-self: flex-start;
         }
 
-        /* In RTL, align CTA to the right edge of the text column so it sits under the heading */
         html[lang="ar"] .hero-cta-button {
           align-self: flex-end;
         }
@@ -144,11 +156,15 @@ const Hero = () => {
         }
 
         .hero-features {
-          margin-top: 30px;
+          margin-top: 40px;
           display: flex;
-          flex-direction: row;
           align-items: center;
           gap: 20px;
+        }
+
+        html[lang="ar"] .feature-text-container {
+          align-items: flex-end;
+          text-align: right;
         }
 
         .feature-line {
@@ -158,32 +174,11 @@ const Hero = () => {
           flex-shrink: 0;
         }
 
-        .feature-text-container {
-          display: flex;
-          flex-direction: column;
-          gap: 8px;
-        }
-
         .feature-text {
           font-size: 16px;
           color: #ffffff;
           line-height: 1.6;
           margin: 0;
-        }
-
-        /* Adjust feature layout for Arabic:
-           keep small horizontal line visually to the left of the feature text (as in Figma),
-           but because container is row-reverse we force ordering so it appears correctly. */
-        html[lang="ar"] .hero-features {
-          /* keep internal order left->right as line then text so the line stays on left side */
-          flex-direction: row;
-          justify-content: flex-start;
-        }
-
-        /* to ensure the little line isn't too far from the text in RTL */
-        html[lang="ar"] .feature-line {
-          margin-left: 0;
-          margin-right: 8px;
         }
 
         .hero-logo-large {
@@ -200,37 +195,49 @@ const Hero = () => {
           object-fit: contain;
         }
 
-        /* Responsive */
+        /* ------------------- MOBILE VIEW FIXED ------------------- */
         @media (max-width: 1200px) {
           .hero-container {
-            padding-left: 40px;
-            padding-right: 40px;
-            flex-direction: column;
-            text-align: center;
-          }
-
-          .hero-content {
-            width: 100%;
-            max-width: 800px;
-            align-items: center;
-            margin-right: 0;
-          }
-
-          html[lang="ar"] .hero-content {
+            flex-direction: column !important;
             align-items: center !important;
+            justify-content: center !important;
+            padding-left: 20px !important;
+            padding-right: 20px !important;
             text-align: center !important;
           }
 
+          .hero-content {
+            width: 100% !important;
+            max-width: 800px !important;
+            text-align: center !important;
+            align-items: center !important;
+            margin-top: 0 !important;
+          }
+
+          /* Arabic mobile = same as English mobile */
+          html[lang="ar"] .hero-content,
+          html[lang="ar"] .hero-title,
+          html[lang="ar"] .title-main,
+          html[lang="ar"] .title-subtitle,
+          html[lang="ar"] .hero-description,
+          html[lang="ar"] .hero-features {
+            text-align: center !important;
+            align-items: center !important;
+          }
+
           .hero-logo-large {
-            display: none;
+            display: block !important;
+            margin-top: 40px !important;
+            width: 60% !important;
+            max-width: 300px !important;
           }
 
           .title-main {
-            font-size: 48px;
+            font-size: 40px !important;
           }
 
           .title-subtitle {
-            font-size: 24px;
+            font-size: 20px !important;
           }
         }
 
@@ -239,25 +246,15 @@ const Hero = () => {
             padding: 100px 0 60px;
           }
 
-          .hero-container {
-            padding-left: 20px;
-            padding-right: 20px;
-          }
-
           .title-main {
-            font-size: 36px;
+            font-size: 34px !important;
           }
 
           .title-subtitle {
-            font-size: 20px;
+            font-size: 18px !important;
           }
 
           .hero-description {
-            font-size: 16px;
-          }
-
-          .hero-cta-button {
-            padding: 16px 36px;
             font-size: 16px;
           }
         }
